@@ -48,8 +48,8 @@ def take_stats():
         for game_tag in game_tags:
             global game_tags_list
             game_tags_list.append(game_tag.text)
-        game_tags_list_before=list(filter(None,game_tags_list)) #removes all the ''
-        game_tags_list = [] #resets the first list, the second one still has the text
+        game_tags_list_before=list(filter(None,game_tags_list)) #removes all the '' , and creates a new variable so we can reset the core one, because for some reason all the games' tags got added to the same list??
+        game_tags_list.clear() #resets the first list, the second one still has the text
         byepercents = ['1', '2', '3', '4', '5', '6', '7', '8', '9',
                        '0']  # get rid of % and - so i can compare the percent of sale_percent with the user set wanted_percentage variable.
         newlist = []
@@ -63,11 +63,11 @@ def take_stats():
             for wanted_tag in wanted_tags_list:
                 if wanted_tag in game_tags_list_before:
                   print(f' ⌜———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————⌝\n│"{game_name}" is {sale_percentage}% off. The original price is {game_price} and the current price is {game_price_discounted}│ \n│The game on Steam: {game_link}.│\n The tags of the game are: {game_tags_list_before}\n ⌞_______________________________________________________________________________________________________________________⌟\n')
-                  game_tags_list = []
+                  game_tags_list.clear()
                 else:
-                    game_tags_list = []
+                    game_tags_list.clear()
         else:
-            game_tags_list = []
+            game_tags_list.clear()
 
 
 def show_more1():
